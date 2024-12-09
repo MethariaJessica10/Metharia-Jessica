@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabel Hari Belajar</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+  <h1>Daftar Hari Belajar</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Keterangan</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+  <script src="script.js" defer></script>
+</body>
+</html>
+```
+
+```
+const tbody = document.getElementById("tbody");
+const fragment = document.createDocumentFragment();
+
+for (let i = 1; i <= 1000; i++) {
+  const row = document.createElement("tr");
+  row.innerHTML = `
+    <td>${i}</td>
+    <td>Ini adalah hari ke-${i} belajar</td>
+  `;
+  fragment.appendChild(row);
+}
+
+tbody.appendChild(fragment);
+```
