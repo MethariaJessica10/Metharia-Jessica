@@ -311,3 +311,60 @@ https://youtu.be/e8DYUPu3PuM?feature=shared
         <p>CSS adalah bahasa stylesheet yang digunakan untuk mengontrol tata letak dan tampilan halaman web. Dengan CSS, Anda dapat mengatur warna, ukuran, spasi, jenis font, dan banyak properti tata letak lainnya untuk elemen-elemen HTML. Penggunaan CSS memungkinkan pemisahan antara struktur dan tata letak, sehingga HTML dapat fokus pada struktur konten, sementara CSS mengontrol cara konten tersebut ditampilkan.</p>
     
 </html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabel Hari Belajar</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+  <h1>Daftar Hari Belajar</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Keterangan</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+  <script src="script.js" defer></script>
+</body>
+</html>
+```
+
+```
+const tbody = document.getElementById("tbody");
+const fragment = document.createDocumentFragment();
+
+for (let i = 1; i <= 1000; i++) {
+  const row = document.createElement("tr");
+  row.innerHTML = `
+    <td>${i}</td>
+    <td>Ini adalah hari ke-${i} belajar</td>
+  `;
+  fragment.appendChild(row);
+}
+
+tbody.appendChild(fragment);
+
